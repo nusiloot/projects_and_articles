@@ -1,0 +1,12 @@
+# OFFICIAL PYTHON 3 IMAGE
+FROM python:3
+
+# INSTALL SCRAPY AND BOTO3 SPECIFIED IN REQUIREMENTS.TXT FILE
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+
+# COPYING PROJECT SOURCE CODE
+COPY . .
+
+# RUN CRAWLER WHEN CONTAINER LAUNCHES
+CMD [ "python", "crawl-spider.py" ]
