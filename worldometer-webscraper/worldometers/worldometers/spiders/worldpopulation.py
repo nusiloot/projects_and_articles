@@ -1,3 +1,4 @@
+import logging
 import scrapy
 from worldometers.items import WorldometersItem
 from datetime import datetime
@@ -14,7 +15,7 @@ class WorldpopulationSpider(scrapy.Spider):
     def parse(self, response):
         
         item= WorldometersItem()
-        
+        logging.info('start scraping data from worldometer')
         for num_of_years in range(1, 18):
             # YEAR. TYPE= STRING. DB= TIME(YEAR)
             item['year']= datetime.strptime(response.xpath(f'//table/tbody/tr[{num_of_years}]/td[1]//text()').get(), '%Y')

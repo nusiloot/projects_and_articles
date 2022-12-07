@@ -19,8 +19,8 @@ class WorldometersPipeline:
         # CREATING CONNECTION
         self.connection= psycopg2.connect(
             host= 'local-host or IPv4 address',
-            user= 'postgres-user',
-            password= 'postgres-password',
+            user= 'user-name',
+            password= 'password',
             database= 'database-name'
         )
         # CREATING CURSOR
